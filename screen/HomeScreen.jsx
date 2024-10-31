@@ -1,7 +1,8 @@
-import { View, Text, TextInput, Button, Alert } from "react-native";
+import { Text, TextInput, Button, Alert } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from "@react-navigation/native";
+import Toast from "react-native-toast-message";
 
 export default function HomeScreen() {
   const navigation = useNavigation();
@@ -10,10 +11,18 @@ export default function HomeScreen() {
 
   const hanldeNext = () => {
     if (email.trim() === "") {
-      Alert.alert("Please enter your email");
+      Toast.show({
+        type: "info",
+        text1: "Hello",
+        text2: "Please Enter you email",
+      });
     }
     if (password.length < 8) {
-      Alert.alert("Please enter your password");
+      Toast.show({
+        type: "error",
+        text1: "Hello",
+        text2: "Please Enter 8 digits password",
+      });
     } else {
       setEmail("");
       setPassowrd("");
@@ -34,6 +43,7 @@ export default function HomeScreen() {
           borderRadius: 12,
           marginBottom: 20,
         }}
+        onPress={() => navigation.navigate("Detail")}
         value={email}
         onChangeText={setEmail}
       />
@@ -52,8 +62,9 @@ export default function HomeScreen() {
         value={password}
         onChangeText={setPassowrd}
       />
-      <Button title="Check out" onPress={hanldeNext} disabled={true} />
+      <Button title="Check out" onPress={hanldeNext} />
       <Text>Link</Text>
+      <Toast position="bottom" />
     </SafeAreaView>
   );
 }
