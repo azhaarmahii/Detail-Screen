@@ -1,11 +1,4 @@
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React, { startTransition } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Entypo from "@expo/vector-icons/Entypo";
@@ -44,7 +37,7 @@ export default function Detail() {
         </View>
 
         <View style={styles.hours}>
-          <MaterialIcons name="access-time" size={20} color="black" />
+          <MaterialIcons name="access-time" size={20} color="brown" />
           <Text>2 hours 30 minutes</Text>
         </View>
 
@@ -118,10 +111,12 @@ const styles = StyleSheet.create({
   },
   k: {
     flexDirection: "row",
+    gap: 3,
   },
 
   star: {
     flexDirection: "row",
+    gap: 3,
   },
   hours: {
     flexDirection: "row",
@@ -142,8 +137,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   intro: {
-    marginTop: 30,
-    borderWidth: 1,
+    marginTop: 20,
     flexDirection: "row",
     justifyContent: "space-between",
     height: 70,
@@ -166,12 +160,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textAlignVertical: "center",
     fontWeight: "bold",
-    marginRight: 10,
+    marginRight: 15,
   },
   lastbutton: {
     marginTop: 60,
     width: "100%",
-    height:50,
+    height: 50,
     borderRadius: 30,
     borderWidth: 1,
     backgroundColor: "brown",
